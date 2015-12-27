@@ -32,12 +32,20 @@ class WpWrapper:
 		post.tags = self.tags
 		post.categories = self.categories
 
-		self.wpconn.call(NewPost(post, True))
-
+		return self.wpconn.call(NewPost(post, True))
+	
 if __name__ == '__main__':
 	wp = WpWrapper('localhost', 'admin-xtao', '123456')
-	wp.set_title('test title')
-	wp.set_content('test content')
-	wp.set_tags('abc, wahaha')
-	wp.set_categories(['test t1', 'test t2'])
-	wp.do_post()
+	i = 0
+	while i < 3:
+		wp.set_title('test title' + str(i))
+		wp.set_content('test content' + str(i))
+		wp.set_tags('abc, wahaha')
+		wp.set_categories(['test t1', 'test t2'])
+		wp.do_post()
+		print i
+		print wp.title
+		print wp.content
+		print wp.tags
+		print wp.categories
+		i = i + 1
