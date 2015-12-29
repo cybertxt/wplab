@@ -22,3 +22,10 @@ Scrapy
 * urls_json=json.dumps(urls) # to json
 * scrapy crawl TopBaiduCom -o TopBaiduCom.json
 ```
+
+Baidu Search Results
+--------------------
+```
+* response.xpath('//div[contains(@id,"1")]/h3/a/@href').extract()
+* response.xpath('//div[contains(@id,"1")]//h3/a[1]/@href').extract()[0]
+```
