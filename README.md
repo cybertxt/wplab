@@ -27,5 +27,6 @@ Baidu Search Results
 --------------------
 ```
 * response.xpath('//div[contains(@id,"1")]/h3/a/@href').extract()
-* response.xpath('//div[contains(@id,"1")]//h3/a[1]/@href').extract()[0]
+* href = response.xpath('//div[contains(@id,"1")]//h3/a[1]/@href').extract()[0]
+* title = response.xpath('/html/head/title/text()').extract()[0][:-5]
 ```
