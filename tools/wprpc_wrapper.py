@@ -41,9 +41,9 @@ class WpWrapper:
 		articles = json.loads(json_data)
 		for article in articles:
 			self.set_title(article['keyword'])
-			content = article['title'] + '<br />' + article['content']
-			content += '<a target="_blank" href="' + article['href'] + '">'
-			content += '详细</a>'
+			content = article['title'] + u'<br />' + article['content']
+			content += u'<a target="_blank" href="' + article['href'] + u'">'
+			content += u'more</a>'
 			self.set_content(content)
 			self.set_tags(article['keyword'])
 			self.set_categories(['hotinfo'])
