@@ -37,7 +37,7 @@ class WpWrapper:
 		return self.wpconn.call(NewPost(post, True))
 	
 	def post_from_json_file(self, json_file):
-		json_data = os.open(json_file, 'r').read()		
+		json_data = open(json_file, 'r').read()		
 		articles = json.loads(json_data)
 		for article in articles:
 			self.set_title(article['keyword'])
