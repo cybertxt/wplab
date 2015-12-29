@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import os
+import json
 from wordpress_xmlrpc import Client, WordPressPost
 from wordpress_xmlrpc.methods.posts import GetRecentPosts, NewPost
 from wordpress_xmlrpc.methods.users import GetUserInfo
@@ -34,6 +36,18 @@ class WpWrapper:
 
 		return self.wpconn.call(NewPost(post, True))
 	
+	def post_from_json_file(self, json_file):
+		json_data = os.open(json_file, 'r').read()		
+		articles = json.loads(json_data)
+		for article in articles:
+			self.set_title(article['keyword'])
+			content = article['title'] + '<br />' + article['content']
+			content += '<a target="_blank" href="' + article['href'] + '">'
+			content += '详细</a>'
+			self.set_content(content)
+			self.set_tags(article['keyword'])
+			self.set_categories(['hotinfo'])
+
 if __name__ == '__main__':
 	wp = WpWrapper('localhost', 'admin-xtao', '123456')
 	i = 0
