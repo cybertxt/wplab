@@ -47,7 +47,7 @@ class WpWrapper:
 			self.set_content(content)
 			self.set_tags(article['keyword'])
 			self.set_categories(['hotinfo'])
-			wp.do_post()
+			self.do_post()
 
 if __name__ == '__main__':
 	wp = WpWrapper('localhost', 'admin-xtao', '123456')
