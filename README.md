@@ -5,8 +5,9 @@ Installation
 ------------
 Steps:
 * Install nginx
-* Install php php-fpm php-xmlrpc
 * Install mysql
+* Install php php-fpm php-xmlrpc php-mysql
+* pip install python-wordpress-xmlrpc
 * Create database for wordpress
 * Create mysql user for wordpress
 * Grant privileges to wp database on wp user
